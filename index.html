@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EnglishQuiz — Latihan 20 Soal Bahasa Inggris</title>
+<meta name="description" content="Latihan 20 soal bahasa Inggris: Expression (used to / would), Report Text, Simple Past, Present Perfect, dan Passive Voice. Langsung cek jawaban + pembahasan.">
+<meta name="theme-color" content="#0a0a12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0a0a12; --coal:#101019; --slate:#161622; --mist:#1e1e2c;
+  --ink:#f2efe8; --ink2:#b3aea3; --ink3:#7c776d;
+  --gold:#c8a86a; --gold-lt:#e8d3a4; --gold-dk:#8a6f3f;
+  --green:#5fbf8a; --red:#e07171;
+  --line:rgba(200,168,106,.22); --line2:rgba(242,239,232,.08);
+  --glass:rgba(242,239,232,.045);
+  --r-lg:18px; --r-md:13px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--void);color:var(--ink);
+  font-family:"Inter","Segoe UI",system-ui,sans-serif;font-weight:300;
+  line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(50% 40% at 85% 4%, rgba(200,168,106,.10), transparent 70%),
+    radial-gradient(46% 38% at 2% 40%, rgba(122,112,178,.07), transparent 72%);
+}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--gold);color:var(--void)}
+:focus-visible{outline:1px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+.wrap{width:min(860px,calc(100% - 36px));margin-inline:auto;position:relative;z-index:1}
+
+/* ===== header ===== */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(10,10,18,.8);
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--line2)}
+.hdr__in{display:flex;align-items:center;gap:14px;padding:14px 0}
+.mark{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;
+  border:1px solid var(--line);color:var(--gold-lt);
+  font-family:"Fraunces",serif;font-size:15px;
+  background:linear-gradient(150deg,rgba(200,168,106,.16),transparent)}
+.hdr__word{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.24em;
+  text-transform:uppercase;line-height:1.5}
+.hdr__word em{display:block;font-style:normal;font-size:.56rem;color:var(--ink3)}
+
+/* ===== hero ===== */
+.hero{padding:clamp(44px,7vw,84px) 0 clamp(26px,4vw,44px);text-align:center}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+h1{font-family:"Fraunces",serif;font-weight:300;line-height:1.02;letter-spacing:-.02em;
+  font-size:clamp(2.2rem,6vw,3.9rem);margin:0;font-variation-settings:"SOFT" 0,"WONK" 1}
+h1 em{font-style:italic;color:var(--gold-lt);font-variation-settings:"SOFT" 40,"WONK" 1}
+.lead{margin:20px auto 0;max-width:52ch;color:var(--ink2);font-size:clamp(.95rem,1.4vw,1.06rem)}
+.topik-chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:26px}
+.tc{padding:8px 15px;border-radius:999px;border:1px solid var(--line2);
+  background:var(--glass);font-family:"IBM Plex Mono",monospace;font-size:.62rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);transition:.3s}
+.tc:hover{border-color:var(--gold);color:var(--gold-lt)}
+
+/* ===== kartu kuis ===== */
+.quiz{padding:clamp(20px,3vw,34px) 0 clamp(60px,8vw,90px)}
+.card{position:relative;border:1px solid var(--line2);border-radius:var(--r-lg);
+  background:linear-gradient(180deg,var(--slate),var(--coal));
+  box-shadow:0 40px 90px -50px rgba(0,0,0,.95);overflow:hidden}
+.card__bar{height:3px;background:linear-gradient(90deg,var(--gold-dk),var(--gold-lt));
+  width:0%;transition:width .5s var(--ease)}
+.card__in{padding:clamp(20px,3.4vw,34px)}
+
+.meta{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink3)}
+.meta .badge{padding:6px 12px;border-radius:999px;border:1px solid var(--line);
+  color:var(--gold-lt);background:rgba(200,168,106,.08)}
+.meta .score{color:var(--ink2)}
+
+.qtext{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(1.22rem,2.4vw,1.62rem);
+  line-height:1.35;margin:22px 0 4px;font-variation-settings:"SOFT" 0,"WONK" 1}
+.qsub{margin:0 0 22px;color:var(--ink3);font-size:.86rem}
+
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;width:100%;
+  padding:14px 17px;border-radius:var(--r-md);border:1px solid var(--line2);
+  background:var(--glass);transition:border-color .3s,background-color .3s,transform .35s var(--ease)}
+.opt:hover:not(:disabled){border-color:var(--gold);transform:translateX(5px)}
+.opt .key{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;
+  border:1px solid var(--line2);font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.06em;color:var(--gold)}
+.opt .txt{font-size:.98rem}
+.opt:disabled{cursor:default;opacity:.72}
+.opt.is-right{border-color:var(--green);background:rgba(95,191,138,.10);opacity:1}
+.opt.is-right .key{border-color:var(--green);color:var(--green)}
+.opt.is-wrong{border-color:var(--red);background:rgba(224,113,113,.10);opacity:1}
+.opt.is-wrong .key{border-color:var(--red);color:var(--red)}
+
+.fb{display:none;gap:6px;margin-top:18px;padding:15px 17px;border-radius:var(--r-md);
+  font-size:.9rem;border:1px solid}
+.fb.is-right{display:block;border-color:rgba(95,191,138,.4);background:rgba(95,191,138,.07)}
+.fb.is-wrong{display:block;border-color:rgba(224,113,113,.4);background:rgba(224,113,113,.07)}
+.fb b{font-weight:600}
+.fb .pbh{color:var(--ink2);font-size:.86rem;line-height:1.6}
+
+.acts{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;
+  flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 26px;
+  border-radius:999px;border:1px solid var(--line);font-family:"IBM Plex Mono",monospace;
+  font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;transition:.4s var(--ease)}
+.btn--gold{background:linear-gradient(135deg,var(--gold-lt),var(--gold) 50%,var(--gold-dk));
+  color:#171208;border-color:transparent;font-weight:500}
+.btn--gold:hover{filter:brightness(1.08)}
+.btn--line:hover{border-color:var(--gold);color:var(--gold-lt)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:disabled:hover{filter:none}
+
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line2);transition:.3s}
+.dots i.is-done{background:var(--gold)}
+.dots i.is-now{background:var(--gold-lt);transform:scale(1.45);
+  box-shadow:0 0 10px rgba(200,168,106,.6)}
+
+/* ===== hasil ===== */
+.hasil{display:none;text-align:center;padding:clamp(28px,5vw,52px) clamp(18px,4vw,40px)}
+.hasil.is-on{display:block;animation:pop .7s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.hasil .angka{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(3.4rem,10vw,6rem);
+  line-height:1;color:var(--gold-lt);font-variant-numeric:tabular-nums;
+  font-variation-settings:"SOFT" 0,"WONK" 1}
+.hasil .predikat{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);margin:14px 0 8px}
+.hasil p{color:var(--ink2);max-width:44ch;margin:0 auto 26px}
+.ringkas{display:grid;gap:8px;text-align:left;margin:0 0 30px}
+.ringkas div{display:flex;justify-content:space-between;gap:12px;padding:11px 15px;
+  border:1px solid var(--line2);border-radius:11px;font-size:.88rem;background:var(--glass)}
+.ringkas b{font-weight:500}
+.ringkas .ok{color:var(--green)} .ringkas .no{color:var(--red)}
+
+footer{border-top:1px solid var(--line2);padding:26px 0 40px;text-align:center;
+  font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink3)}
+
+@media (max-width:560px){
+  .opt{padding:12px 13px;gap:10px}
+  .qtext{font-size:1.14rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <span class="mark">EQ</span>
+    <span class="hdr__word">EnglishQuiz<em>Latihan 20 soal · cek jawaban langsung</em></span>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Bahasa Inggris · 5 Materi</p>
+    <h1>Latihan soal yang <em>langsung mengoreksi.</em></h1>
+    <p class="lead">Dua puluh soal pilihan ganda dari lima materi: Expression (used to / would),
+      Report Text, Simple Past, Present Perfect, dan Passive Voice. Setiap jawaban langsung
+      dikoreksi beserta pembahasannya.</p>
+    <div class="topik-chips" id="chips"></div>
+  </div>
+</section>
+
+<section class="quiz">
+  <div class="wrap">
+    <div class="card">
+      <div class="card__bar" id="bar"></div>
+      <div class="card__in" id="quizBox"></div>
+      <div class="hasil" id="hasilBox"></div>
+    </div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">EnglishQuiz · 20 soal · dibuat untuk latihan mandiri</div>
+</footer>
+
+<script>
+const SOAL = [
+  /* ===== Expression: used to / would (4) ===== */
+  { t:'Expression — used to / would',
+    q:'When I was a child, I ___ play outside every afternoon.',
+    o:['use to','used to','am used to','using to'], a:1,
+    p:'"used to + V1" untuk kebiasaan masa lalu yang sudah tidak dilakukan sekarang. "use to" tanpa -d hanya muncul setelah did (negative/question).' },
+  { t:'Expression — used to / would',
+    q:'Every summer, my grandmother ___ tell us stories before bedtime.',
+    o:['would','is used to','used','will'], a:0,
+    p:'"would + V1" juga untuk kebiasaan berulang di masa lalu (past habits), terutama dalam cerita. Bedanya dengan "used to": would tidak dipakai untuk keadaan (stative) seperti live atau have.' },
+  { t:'Expression — used to / would',
+    q:'He ___ like coffee, but now he drinks it every morning.',
+    o:['didn\'t used to','doesn\'t use to','didn\'t use to','not use to'], a:2,
+    p:'Bentuk negative: "didn\'t use to" (pakai did + use, tanpa -d). Kesalahan umum: menulis "didn\'t used to".' },
+  { t:'Expression — used to / would',
+    q:'___ live in this neighborhood when you were young?',
+    o:['Did you use to','Did you used to','Do you use to','Are you used to'], a:0,
+    p:'Pertanyaan: "Did + subjek + use to + V1?" — sama seperti negative, setelah did gunakan "use to" tanpa -d.' },
+
+  /* ===== Report Text (4) ===== */
+  { t:'Report Text',
+    q:'What is the main purpose of a report text?',
+    o:['To entertain the readers with a story',
+       'To describe something in general based on systematic observation',
+       'To persuade readers to agree with an opinion',
+       'To retell past events in chronological order'], a:1,
+    p:'Report text menyajikan fakta umum tentang suatu hal (generic participant) hasil observasi — bukan hal spesifik, bukan cerita, bukan persuasi.' },
+  { t:'Report Text',
+    q:'Which one is the generic structure of a report text?',
+    o:['Orientation — Complication — Resolution',
+       'Goal — Materials — Steps',
+       'General Classification — Description',
+       'Thesis — Arguments — Reiteration'], a:2,
+    p:'Report: General Classification (pengelompokan umum) lalu Description (rincian: bagian, kebiasaan, habitat, dll). Opsi lain adalah struktur narrative, procedure, dan analytical exposition.' },
+  { t:'Report Text',
+    q:'Which title most likely belongs to a report text?',
+    o:['My Unforgettable Trip to Bali',
+       'How to Make Fried Rice',
+       'Why Students Should Exercise',
+       'The Physical Characteristics of Dolphins'], a:3,
+    p:'Report membahas sesuatu secara umum — "The Physical Characteristics of Dolphins" mendeskripsikan lumba-lumba pada umumnya, bukan pengalaman pribadi atau langkah-langkah.' },
+  { t:'Report Text',
+    q:'Which tense is mostly used in a report text?',
+    o:['Simple present tense','Simple past tense','Present continuous tense','Future tense'], a:0,
+    p:'Report text menyajikan fakta yang berlaku umum, jadi dominan memakai simple present: "Dolphins live in groups", "It has a streamlined body".' },
+
+  /* ===== Simple Past (4) ===== */
+  { t:'Simple Past',
+    q:'She ___ to Bali with her family last month.',
+    o:['goes','go','went','gone'], a:2,
+    p:'Ada penanda waktu lampau "last month", jadi pakai simple past. Go adalah kata kerja tidak beraturan: go → went → gone.' },
+  { t:'Simple Past',
+    q:'I ___ my homework before dinner yesterday.',
+    o:['finish','finished','have finished','am finishing'], a:1,
+    p:'"yesterday" menandakan waktu lampau yang sudah selesai → simple past. Kata kerja beraturan: finish + -ed = finished.' },
+  { t:'Simple Past',
+    q:'He didn\'t ___ the meeting because he was sick.',
+    o:['attended','attend','attends','attending'], a:1,
+    p:'Setelah auxiliary "did/didn\'t", kata kerja kembali ke bentuk dasar (V1): didn\'t attend. Kesalahan umum: "didn\'t attended".' },
+  { t:'Simple Past',
+    q:'___ you call me last night? I couldn\'t answer.',
+    o:['Do','Did','Have','Are'], a:1,
+    p:'Pertanyaan simple past: "Did + subjek + V1?" — "last night" menunjukkan waktu lampau, jadi auxiliary-nya Did, bukan Do.' },
+
+  /* ===== Present Perfect (4) ===== */
+  { t:'Present Perfect',
+    q:'I ___ this movie three times, and I still enjoy it.',
+    o:['watch','watched','have watched','am watching'], a:2,
+    p:'"three times" = sudah selesai tetapi tanpa waktu spesifik dan efeknya masih terasa → present perfect: have/has + V3 (watched).' },
+  { t:'Simple Past vs Present Perfect',
+    q:'She ___ in this city since 2019.',
+    o:['lived','has lived','lives','is living'], a:1,
+    p:'"since 2019" menunjukkan aksi yang dimulai di masa lalu dan berlanjut sampai sekarang → present perfect: has lived.' },
+  { t:'Present Perfect',
+    q:'___ you ever ___ sushi? It\'s delicious!',
+    o:['Did / eat','Have / eaten','Do / ate','Are / eaten'], a:1,
+    p:'"ever" dalam pengalaman hidup (tanpa waktu tertentu) → Have you ever + V3. Eat tidak beraturan: eat → ate → eaten.' },
+  { t:'Simple Past vs Present Perfect',
+    q:'Choose the CORRECT sentence.',
+    o:['I have met him yesterday.',
+       'I met him yesterday.',
+       'I have meet him yesterday.',
+       'I meet him yesterday.'], a:1,
+    p:'Jika waktunya spesifik dan sudah lewat (yesterday), pakai simple past — present perfect (have met) tidak boleh dipasangkan dengan penanda waktu lampau yang spesifik.' },
+
+  /* ===== Passive Voice (4) ===== */
+  { t:'Passive Voice',
+    q:'The letter ___ to the wrong address yesterday.',
+    o:['is sent','was sent','sent','has sending'], a:1,
+    p:'Subjek (the letter) tidak melakukan aksi, ia dikenai aksi → pasif. Waktu lampau (yesterday): was/were + V3 → was sent.' },
+  { t:'Passive Voice',
+    q:'Change into passive: "They build houses every year."',
+    o:['Houses are built every year.',
+       'Houses were built every year.',
+       'Houses is built every year.',
+       'Houses have built every year.'], a:0,
+    p:'Kalimat aktif simple present → pasif: is/am/are + V3. Subjek jamak (houses) memakai "are", dan kebiasaan "every year" tetap present.' },
+  { t:'Passive Voice',
+    q:'This book ___ by millions of people since it was published.',
+    o:['is read','was read','has been read','had read'], a:2,
+    p:'"since ..." + aksi berlanjut → passive present perfect: has/have been + V3. Subjek "this book" → has been read.' },
+  { t:'Passive Voice',
+    q:'Rice ___ in many parts of Indonesia.',
+    o:['is grown','grows it','was grown','has growing'], a:0,
+    p:'Fakta umum yang masih berlaku sekarang → passive simple present: is/am/are + V3 (grown). Rice tidak menanam, rice ditanam.' }
+];
+
+(function(){
+  'use strict';
+  const $ = (s,r)=> (r||document).querySelector(s);
+  const KEY = ['A','B','C','D'];
+  let i = 0, jawab = Array(SOAL.length).fill(null), terkunci = false;
+
+  const box = $('#quizBox'), hasil = $('#hasilBox'), bar = $('#bar'), dots = $('#dots');
+  dots.innerHTML = SOAL.map(()=> '<i></i>').join('');
+  const dotEls = [...dots.children];
+
+  /* chips topik (hanya info, sekaligus lompat ke soal topik tsb) */
+  const topik = [...new Set(SOAL.map(s=>s.t))];
+  $('#chips').innerHTML = topik.map(t=>{
+    const n = SOAL.filter(s=>s.t===t).length;
+    return '<button class="tc" data-t="'+t+'">'+t+' · '+n+'</button>';
+  }).join('');
+  $('#chips').addEventListener('click', ev=>{
+    const b = ev.target.closest('.tc'); if(!b) return;
+    const idx = SOAL.findIndex(s=>s.t===b.getAttribute('data-t'));
+    if(idx>-1 && !terkunci){ i = idx; render(); window.scrollTo({top:$('.quiz').offsetTop-80, behavior:'smooth'}); }
+  });
+
+  function progress(){
+    bar.style.width = ((i)/SOAL.length*100)+'%';
+    dotEls.forEach((d,k)=>{
+      d.classList.toggle('is-done', jawab[k]!==null);
+      d.classList.toggle('is-now', k===i);
+    });
+  }
+
+  function render(){
+    progress();
+    const s = SOAL[i], pilih = jawab[i];
+    const sudah = pilih!==null;
+    box.innerHTML =
+      '<div class="meta"><span class="badge">'+s.t+'</span>'+
+      '<span class="score">Soal '+(i+1)+' / '+SOAL.length+'</span></div>'+
+      '<h2 class="qtext">'+s.q+'</h2>'+
+      '<p class="qsub">Pilih satu jawaban — koreksi muncul otomatis.</p>'+
+      '<div class="opts">'+s.o.map((o,k)=>{
+        let cls='opt';
+        if(sudah){
+          if(k===s.a) cls+=' is-right';
+          else if(k===pilih) cls+=' is-wrong';
+        }
+        return '<button class="'+cls+'" data-k="'+k+'" '+(sudah?'disabled':'')+'>'+
+          '<span class="key">'+KEY[k]+'</span><span class="txt">'+o+'</span></button>';
+      }).join('')+'</div>'+
+      '<div class="fb '+(sudah ? (pilih===s.a?'is-right':'is-wrong') : '')+'" id="fb"></div>'+
+      '<div class="acts">'+
+        '<button class="btn btn--line" id="prev" '+(i===0?'disabled':'')+'>&larr; Sebelumnya</button>'+
+        '<button class="btn btn--gold" id="next" '+(i===SOAL.length-1?'':'')+'>'+
+          (i===SOAL.length-1?'Lihat Hasil':'Berikutnya')+' &rarr;</button>'+
+      '</div>';
+
+    const fb = $('#fb');
+    if(sudah){
+      const benar = pilih===s.a;
+      fb.innerHTML = '<b>'+(benar?'Benar!':'Kurang tepat — jawaban: '+KEY[s.a]+'. '+s.o[s.a])+'</b>'+
+        '<span class="pbh"><br>Pembahasan: '+s.p+'</span>';
+    }
+    $('#prev').addEventListener('click', ()=>{ if(i>0){ i--; render(); } });
+    $('#next').addEventListener('click', ()=>{
+      if(i===SOAL.length-1){ tampilHasil(); }
+      else { i++; render(); }
+    });
+    [...box.querySelectorAll('.opt')].forEach(b=>{
+      b.addEventListener('click', ()=>{
+        if(jawab[i]!==null) return;
+        jawab[i] = +b.getAttribute('data-k');
+        render();
+      });
+    });
+  }
+
+  function tampilHasil(){
+    const benar = jawab.filter((j,k)=> j===SOAL[k].a).length;
+    const nilai = Math.round(benar/SOAL.length*100);
+    const pred = nilai>=85?'Excellent':nilai>=70?'Good Job':nilai>=50?'Keep Learning':'Ulangi Materi';
+    box.style.display='none';
+    hasil.classList.add('is-on');
+    hasil.innerHTML =
+      '<div class="angka">'+nilai+'</div>'+
+      '<p class="predikat">'+pred+' — '+benar+' benar dari '+SOAL.length+' soal</p>'+
+      '<p>'+(nilai>=70?'Mantap! Pemahaman materimu sudah kuat. Periksa soal yang keliru di ringkasan di bawah.'
+        :'Tidak apa-apa — lihat ringkasan di bawah, baca pembahasannya, lalu coba lagi dari awal.')+'</p>'+
+      '<div class="ringkas">'+SOAL.map((s,k)=>{
+        const ok = jawab[k]===s.a;
+        return '<div><b>'+(k+1)+'. '+s.t+'</b><span class="'+(ok?'ok':'no')+'">'+(ok?'Benar':'Salah ('+KEY[jawab[k]]+' &rarr; '+KEY[s.a]+')')+'</span></div>';
+      }).join('')+'</div>'+
+      '<button class="btn btn--gold" id="ulang">Ulangi dari Awal &rarr;</button>';
+    bar.style.width='100%';
+    $('#ulang').addEventListener('click', ()=>{
+      i=0; jawab=Array(SOAL.length).fill(null);
+      hasil.classList.remove('is-on'); box.style.display='';
+      render();
+    });
+  }
+
+  /* keyboard A-D & panah */
+  document.addEventListener('keydown', ev=>{
+    if(hasil.classList.contains('is-on')) return;
+    const k = ev.key.toUpperCase();
+    if(KEY.includes(k)){
+      const idx = KEY.indexOf(k);
+      const btn = box.querySelector('.opt[data-k="'+idx+'"]');
+      if(btn && !btn.disabled) btn.click();
+    }
+    if(ev.key==='ArrowRight' && i<SOAL.length-1){ i++; render(); }
+    if(ev.key==='ArrowLeft' && i>0){ i--; render(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
